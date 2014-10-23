@@ -590,7 +590,7 @@ function lunch()
     export TARGET_BUILD_TYPE=release
 
     echo
-
+    chromium_prebuilt
     set_stuff_for_environment
     printconfig
 }
