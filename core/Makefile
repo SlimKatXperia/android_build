@@ -1441,9 +1441,11 @@ bootzip: bootimage
 	   $(TARGET_DEVICE)
 
 bacon: otapackage
+ifeq ($(USE_PREBUILT_CHROMIUM),1)
 ifneq ($(PRODUCT_PREBUILT_WEBVIEWCHROMIUM),yes)
 	@echo "Running Chromium prebuilt setup script..."
 	$(hide) . $(TOPDIR)vendor/slim/utils/chromium_prebuilt.sh $(TOP)
+endif
 endif
 ifneq ($(TARGET_CUSTOM_RELEASETOOL),)
 	@echo -e ${CL_YLW}"Running custom releasetool..."${CL_RST}
